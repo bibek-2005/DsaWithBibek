@@ -2,9 +2,7 @@ public class Transpose {
 
     public static void main(String[] args) {
         int[][] arr= {{1,2,3,0} ,{5,6,7,8},{3,9,8,9},{3,5,7,8}};
-print(arr);
-
-
+        print(arr);
         for(int i=0; i< arr.length; i++){
             for(int j=0;j<i;j++){
                 int temp =arr[i][j];
@@ -14,8 +12,6 @@ print(arr);
 
         }
 print(arr);
-
-
 
 
 
