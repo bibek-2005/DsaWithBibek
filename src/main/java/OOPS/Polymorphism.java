@@ -1,0 +1,29 @@
+package OOPS;
+
+public class Polymorphism {
+    public static class Dog{
+
+        void speak(){
+            System.out.println("bhau bhau");
+        }
+    }
+    public static class Cat{
+        void speak() {
+            System.out.println("mow mow");
+        }
+    }
+    public static class Human{
+        void speak(){
+            System.out.println("hello ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Dog d= new Dog();
+        Cat c= new Cat();
+        Human h= new Human();
+        d.speak();
+        c.speak();
+        h.speak();
+    }
+}
