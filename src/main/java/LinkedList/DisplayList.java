@@ -27,7 +27,6 @@ public class DisplayList {
             temp = temp.next;
         }
         return temp.val;
-
     }
 
     public static void main(String[] args) {
