@@ -1,0 +1,21 @@
+class pali{
+    public static void main(String[] args){
+        int min =1, max = 10;
+        for(int i=min;i<max;i++){
+        if(isPali(i)) System.out.print(i+" ");
+        //else System.out.print(i+" ");
+        }
+    }
+    public static boolean isPali(int n){
+        int num =n;
+        int rev =0;
+        
+        while(num>0){
+            int digit = num%10;
+            rev = rev*10+digit;
+            num /= 10;
+        }
+        if(rev == n) return true;
+        return false;
+    }
+}
