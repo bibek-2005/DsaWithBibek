@@ -21,8 +21,35 @@ class Pair{
         this.node=node;
     }
 }
+class Quad{
+    int max;
+    int min;
+    int size;
+    int sum;
+    Quad(int max, int min, int size,int sum){
+        this.max = max;
+        this.min = min;
+        this.size = size;
+        this.sum = sum;
+    }
+    void display(){
+        System.out.print(max +" "+ min +" "+ size +" "+ sum);
+    }
+
+}
+
 
 public class Tree {
+    public static Quad maxminsizesum(Node root){
+        if(root == null) return new Quad(Integer.MIN_VALUE,Integer.MAX_VALUE,0,0);
+        Quad lst= maxminsizesum(root.left);
+        Quad rst = maxminsizesum(root.right);
+        int max = Math.max(root.val,Math.max(lst.max,rst.max));
+        int min = Math.min(root.val,Math.min(lst.min, rst.min));
+        int size =1+lst.size+rst.size;
+        int sum=root.val+lst.sum+rst.sum;
+        return new Quad(max,min,size,sum);
+    }
     public static void main(String[] args) {
         Node a= new Node(1);
         Node b= new Node(2);
@@ -58,8 +85,9 @@ public class Tree {
 //        inorder(a);
         //levelOrder(a);
         //System.out.println(levelOrder(a););
-        levelrderWise(a);
-
+        //levelrderWise(a);
+       maxminsizesum(a).display();
+        System.out.println(maxminsizesum(a).sum);
     }
 
     public static void levelrderWise(Node root) {
@@ -127,16 +155,17 @@ public class Tree {
 
     }
 
-    public static void levelOrder(Node root){
+    public static void levelOrder(Node root) {
         Queue<Node> q = new LinkedList<Node>();
         q.add(root);
-        while(q.size()>0){
+        while (q.size() > 0) {
             Node front = q.remove();
-            System.out.print(front.val+" ");
-            if(front.left != null)q.add(front.left);
-            if(front.right != null)q.add(front.right);
+            System.out.print(front.val + " ");
+            if (front.left != null) q.add(front.left);
+            if (front.right != null) q.add(front.right);
         }
-
     }
+
+
 
 }
